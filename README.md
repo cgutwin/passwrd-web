@@ -1,7 +1,7 @@
 # passwrd.
 
 A simple password manager built for me, as my previous one became more and more out of date. If you are looking at 
-this, you will need the [server](https://github.com/cgutwin/passwrd-web) too.
+this, you will need the [server](https://github.com/cgutwin/passwrd-server) too.
 
 ## Getting Started
 
