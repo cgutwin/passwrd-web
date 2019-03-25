@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 
-function Dashboard () {
+function Passwords () {
   return (
     <Fragment>
       <h1>dashboard</h1>
@@ -8,4 +8,4 @@ function Dashboard () {
   )
 }
 
-export default Dashboard
+export default Passwords

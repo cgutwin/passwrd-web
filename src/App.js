@@ -2,8 +2,9 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import { getAccountStatus } from './api/'
 import PrivateRoute from './components/router/PrivateRoute'
-import Login from './components/pages/login/'
-import Passwords from './components/pages/passwords/'
+import Loading from './components/pages/Loading/'
+import Login from './components/pages/Login/'
+import Passwords from './components/pages/Passwords/'
 import PageNotFound from './components/pages/404/'
 import routerConfig from './config/router'
 
@@ -29,16 +30,16 @@ function App () {
   return (
     <Fragment>
       { accountStatus.status === 'loading'
-        ? <div>Loading</div>
+        ? <Loading/>
         : (
           <Router basename={routerConfig.basename}>
             <Switch>
               <Route exact path={'/'} render={() => (
                 accountStatus.status
-                  ? <Redirect push to='/dashboard'/>
+                  ? <Redirect push to='/passwords'/>
                   : <Login setAccountStatus={setAccountStatus}/>
               )}/>
-              <PrivateRoute path={'/dashboard'} component={Passwords} props={{accountStatus: accountStatus}}/>
+              <PrivateRoute path={'/passwords'} component={Passwords} props={{accountStatus: accountStatus}}/>
               {/* Alias '/login' to '/'*/}
               <Redirect from={'/login'} to={'/'}/>
               <Route component={PageNotFound}/>
