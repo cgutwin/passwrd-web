@@ -25,3 +25,6 @@ yarn-error.log*
 #config
 /src/config/*
 !/src/config/*.example.json
+
+#ide
+/.idea
