@@ -14,7 +14,7 @@ const PrivateRoute = ({ component: Component, props, ...rest }) => {
   return (
     <Route {...rest}
       render={routeProps => (
-        props.isAuthenticated.state
+        props.accountStatus.status
           ? <Component {...routeProps}/>
           : <Redirect to={'/'}/>
       )}
