@@ -26,3 +26,15 @@ export const signIn = async (userToSignIn) => {
     data: signInData.data
   }
 }
+
+export const signOut = async () => {
+  return await Axios.post('/auth/logout')
+}
+
+export const getPasswords = async () => {
+  const passwords = await Axios.get(`/accounts/`)
+  return {
+    status: true,
+    data: passwords.data
+  }
+}

@@ -42,6 +42,7 @@ function App () {
               <PrivateRoute path={'/passwords'} component={Passwords} props={{accountStatus: accountStatus}}/>
               {/* Alias '/login' to '/'*/}
               <Redirect from={'/login'} to={'/'}/>
+              <Route exact path={'/loading'} component={Loading}/>
               <Route component={PageNotFound}/>
             </Switch>
           </Router>

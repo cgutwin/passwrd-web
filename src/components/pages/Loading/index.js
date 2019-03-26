@@ -29,7 +29,7 @@ const translateX = keyframes`
 `;
 
 const Indicator = Styled.div`
-  animation: ${translateX} 1s ease-in-out infinite alternate;
+  animation: ${translateX} 500ms ease-in-out infinite alternate;
   background: #304FFE;
   border-radius: 50%;
   height: 15px;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Styled from 'styled-components'
 
-function passwordCard ({ password, children }) {
+function PasswordCard ({ password, children }) {
   const [ copyClicked, setCopyClicked ] = useState(false)
   const [ passwordVisible, setPasswordVisible] = useState(false)
   
@@ -66,6 +66,7 @@ function passwordCard ({ password, children }) {
   
   return (
     <Card>
+      {/*empty grid to hold placeholder in grid for favicons??*/}
       <div>
       </div>
       {children}
@@ -90,7 +91,7 @@ const Card = Styled('div')`
   & > p { font-size: 13px; }
   
   &:hover {
-    background: #396afc;
+    background: #304FFE;
     border: 2px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0px 5px 20px 10px rgba(0, 0, 0, 0.08);
     color: white;
@@ -98,7 +99,7 @@ const Card = Styled('div')`
   }
   
   &:active {
-    background: #2d53c4;
+    background: #284Fd6;
     border: 2px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0px 2px 20px 10px rgba(0, 0, 0, 0.08);
     transition: background 20ms
@@ -112,8 +113,9 @@ const Card = Styled('div')`
   grid-gap: 10px;
   grid-template-columns: 1fr 3fr 5fr 5fr
   height: 60px;
+  margin-bottom: 5px;
   transition: background 200ms, box-shadow 200ms;
-  width: 95%;
+  width: 100%;
 `
 
 const RowIcons = Styled('div')`
@@ -125,4 +127,4 @@ const RowIcons = Styled('div')`
   width: 80px;
 `
 
-export default passwordCard
+export default PasswordCard

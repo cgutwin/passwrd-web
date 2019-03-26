@@ -15,7 +15,13 @@ function LoginPage (props) {
       <Branding/>
       <Form signIn={signIn}/>
       <Info>
-        <p>I'm on GitHub</p>
+        <p>
+          <a href={'https://github.com/cgutwin'}
+             rel={'noreferrer noopener nofollow'}
+             target={'_blank'}>
+            I'm on GitHub
+          </a>
+        </p>
       </Info>
     </Wrapper>
   )
