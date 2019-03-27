@@ -38,3 +38,9 @@ export const getPasswords = async () => {
     data: passwords.data
   }
 }
+
+export const addPassword = async (passwordData) => {
+  console.log(passwordData)
+  const passwords = await Axios.post(`/accounts/new`, passwordData)
+  return passwords
+}

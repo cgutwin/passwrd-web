@@ -6,8 +6,8 @@ import { signIn as SignIn } from '../../../api/'
 
 function LoginPage (props) {
   const signIn = (userToSignIn) => {
-    SignIn(userToSignIn)
-      .then(signInResult => props.setAccountStatus(signInResult))
+      SignIn(userToSignIn)
+        .then(signInResult => props.setAccountStatus(signInResult))
   }
   
   return (

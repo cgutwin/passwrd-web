@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Styled from 'styled-components'
-import Button from './Button'
+import Button from '../../../elements/Button'
 import Input from './Input'
 
 function Form ({ signIn }) {

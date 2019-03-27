@@ -1,8 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import SkeletonLoading from './components/SkeletonLoading'
+import Styled from 'styled-components'
+import AddPasswordWrapper from './components/AddPasswordWrapper/'
 import PasswordsTemplate from '../../templates/PasswordsTemplate'
-import PasswordCard from './components/passwordCard'
-import { getPasswords } from '../../../api/'
+import PasswordEntry from './components/PasswordEntry/'
+import { getPasswords, addPassword } from '../../../api/'
 
 const initialPasswordStatus = {
   status: 'loading',
@@ -19,24 +20,52 @@ function Passwords () {
       .then(passwords => setUserPasswords(passwords))
   }, [])
   
-  const PasswordList = userPasswords.data.map((account, key) => (
-    <PasswordCard password={account.Password} key={key}>
+  const AddPassword = (passwordData) => {
+    console.log(passwordData)
+    addPassword(passwordData)
+      .then(() => {
+        setUserPasswords({
+          status: 'true',
+          data: [...userPasswords.data, passwordData]
+        })
+      })
+  }
+  
+  const passwordsList = userPasswords.data.map((account, key) => (
+    <PasswordEntry Password={account.Password} key={key}>
       <h4>{account.AppName}</h4>
       <p>{account.AccountName}</p>
-    </PasswordCard>
+    </PasswordEntry>
   ))
   
   return (
     <PasswordsTemplate>
       { userPasswords.status === 'loading'
-        ? <SkeletonLoading/>
-        : (
+        ? (
           <Fragment>
-            {PasswordList}
+            <div/>
+            <main>
+              <p>nothing selected :(</p>
+            </main>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <AddPasswordWrapper AddPassword={AddPassword}/>
+            <main style={{gridColumn: '3 / end', paddingTop: 20, overflowY: 'scroll'}}>
+              {passwordsList}
+              <EndText>•</EndText>
+            </main>
           </Fragment>
         )}
     </PasswordsTemplate>
   )
 }
+
+const EndText = Styled('div')`
+  color: #edeef2;
+  display: flex;
+  justify-content: center;
+  margin: 2% 0;
+`
 
 export default Passwords
