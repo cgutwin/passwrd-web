@@ -3,6 +3,16 @@
 A simple password manager built for me, as my previous one became more and more out of date. If you are looking at 
 this, you will need the [server](https://github.com/cgutwin/passwrd-server) too.
 
+## Screenshots
+<p align="center">
+  <img alt="passwrd login page" 
+       src="https://raw.githubusercontent.com/cgutwin/passwrd-web/develop/githubAssets/LoginPage.png" 
+       width="75%"/>
+  <img alt="passwrd main page" 
+       src="https://raw.githubusercontent.com/cgutwin/passwrd-web/develop/githubAssets/PasswordDisplay.png" 
+       width="75%"/>
+</p>
+
 ## Getting Started
 
 This will get you running in a development environment. If you do want to deploy it, there are instructions below.
