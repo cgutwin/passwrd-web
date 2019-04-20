@@ -2,7 +2,7 @@ import React from 'react'
 import Branding from './components/Branding'
 import Form from './components/Form'
 import Styled from 'styled-components'
-import { signIn as SignIn } from '../../../api/'
+import { signIn as SignIn, createAccount as CreateAccount } from '../../../api/'
 
 function LoginPage (props) {
   const signIn = (userToSignIn) => {
@@ -10,10 +10,15 @@ function LoginPage (props) {
         .then(signInResult => props.setAccountStatus(signInResult))
   }
   
+  const createAccount = (accountToCreate) => {
+    CreateAccount(accountToCreate)
+      .then(creationResult => alert(JSON.stringify(creationResult)))
+  }
+  
   return (
     <Wrapper>
       <Branding/>
-      <Form signIn={signIn}/>
+      <Form signIn={signIn} createAccount={createAccount}/>
       <Info>
         <p>
           <a href={'https://github.com/cgutwin'}

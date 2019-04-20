@@ -44,3 +44,16 @@ export const addPassword = async (passwordData) => {
   const passwords = await Axios.post(`/accounts/new`, passwordData)
   return passwords
 }
+
+export const createAccount = async (accountToCreate) => {
+  const accountData = await Axios.post(`/user/create`, accountToCreate, {
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+  
+  return {
+    status: true,
+    data: accountData.data
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "passwrd",
-  "version": "0.1-alpha",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
@@ -16,6 +16,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://cgutwin.ca/passwrd",
   "browserslist": [
     ">0.2%",
     "not dead",

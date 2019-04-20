@@ -3,7 +3,7 @@ import Styled from 'styled-components'
 import Button from '../../../elements/Button'
 import Input from './Input'
 
-function Form ({ signIn }) {
+function Form ({ signIn, createAccount }) {
   const [ username, setUsername ] = useState(null)
   const [ password, setPassword ] = useState(null)
   
@@ -14,6 +14,20 @@ function Form ({ signIn }) {
     }
   
     signIn(userToSignIn)
+  }
+  
+  const onCreateAccountClick = () => {
+    let accountToCreate = {
+      username: username,
+      password: password
+    }
+    
+    if (accountToCreate.username && accountToCreate.password) {
+      createAccount(accountToCreate)
+    }
+    else {
+      console.error(accountToCreate)
+    }
   }
   
   return (
@@ -53,7 +67,7 @@ function Form ({ signIn }) {
           <Button onClick={onSignInClick}
                   type={'submit'}>Sign In</Button>
           <p>or</p>
-          <p>x</p>
+          <p onClick={onCreateAccountClick}>CREATE AN ACCOUNT</p>
         </ButtonWrapper>
       </StyledForm>
     </Wrapper>
