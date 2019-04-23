@@ -67,7 +67,7 @@ function Form ({ signIn, createAccount }) {
           <Button onClick={onSignInClick}
                   type={'submit'}>Sign In</Button>
           <p>or</p>
-          <p style={{cursor: 'pointer'}} onClick={onCreateAccountClick}>CREATE AN ACCOUNT</p>
+          <CreateAccount onClick={onCreateAccountClick}>Create An Account</CreateAccount>
         </ButtonWrapper>
       </StyledForm>
     </Wrapper>
@@ -111,6 +111,12 @@ const ButtonWrapper = Styled('div')`
   gap: 2%;
   margin-top: 40px;
   padding-left: 40px;
+`
+
+const CreateAccount = Styled('p')`
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: underline;
 `
 
 export default Form
