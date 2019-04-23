@@ -12,7 +12,10 @@ function LoginPage (props) {
   
   const createAccount = (accountToCreate) => {
     CreateAccount(accountToCreate)
-      .then(creationResult => alert(JSON.stringify(creationResult)))
+      .then(creationResult => {
+        if (creationResult.status) signIn(accountToCreate)
+        alert(JSON.stringify(creationResult))
+      })
   }
   
   return (
@@ -21,7 +24,7 @@ function LoginPage (props) {
       <Form signIn={signIn} createAccount={createAccount}/>
       <Info>
         <p>
-          <a href={'https://github.com/cgutwin'}
+          <a href={'https://github.com/cgutwin/passwrd-web'}
              rel={'noreferrer noopener nofollow'}
              target={'_blank'}>
             I'm on GitHub
