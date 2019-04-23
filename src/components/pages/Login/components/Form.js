@@ -92,10 +92,12 @@ const StyledForm = Styled('form')`
   width: 100%;
 `
 
-const InputWrapper = Styled('div')`
+const InputWrapper = Styled('label')`
+  &:focus-within { fill: #304FFE; }
   align-items: center;
   display: flex;
   flex-direction: row;
+  transition: fill 200ms;
 `
 
 const ButtonWrapper = Styled('div')`
