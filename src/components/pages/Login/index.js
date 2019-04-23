@@ -12,7 +12,10 @@ function LoginPage (props) {
   
   const createAccount = (accountToCreate) => {
     CreateAccount(accountToCreate)
-      .then(creationResult => alert(JSON.stringify(creationResult)))
+      .then(creationResult => {
+        if (creationResult.status) signIn(accountToCreate)
+        alert(JSON.stringify(creationResult))
+      })
   }
   
   return (
