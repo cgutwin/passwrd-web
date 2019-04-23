@@ -67,7 +67,7 @@ function Form ({ signIn, createAccount }) {
           <Button onClick={onSignInClick}
                   type={'submit'}>Sign In</Button>
           <p>or</p>
-          <p onClick={onCreateAccountClick}>CREATE AN ACCOUNT</p>
+          <p style={{cursor: 'pointer'}} onClick={onCreateAccountClick}>CREATE AN ACCOUNT</p>
         </ButtonWrapper>
       </StyledForm>
     </Wrapper>

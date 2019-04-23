@@ -27,6 +27,9 @@ function LoginPage (props) {
             I'm on GitHub
           </a>
         </p>
+        <p>
+          Very much in an alpha state.
+        </p>
       </Info>
     </Wrapper>
   )
