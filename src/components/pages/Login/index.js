@@ -21,7 +21,7 @@ function LoginPage (props) {
       <Form signIn={signIn} createAccount={createAccount}/>
       <Info>
         <p>
-          <a href={'https://github.com/cgutwin'}
+          <a href={'https://github.com/cgutwin/passwrd-web'}
              rel={'noreferrer noopener nofollow'}
              target={'_blank'}>
             I'm on GitHub
