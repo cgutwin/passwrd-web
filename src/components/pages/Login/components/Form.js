@@ -13,7 +13,9 @@ function Form ({ signIn, createAccount }) {
       password: password
     }
   
-    signIn(userToSignIn)
+    if (username && password) {
+      signIn(userToSignIn)
+    }
   }
   
   const onCreateAccountClick = () => {
