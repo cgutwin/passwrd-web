@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Toast from './components/Toast'
 import Branding from './components/Branding'
 import Form from './components/Form'
 import Styled from 'styled-components'
 import { signIn as SignIn, createAccount as CreateAccount } from '../../../api/'
 
 function LoginPage (props) {
+  const [ errorToastDisplay, setErrorToastDisplay ] = useState({visible: false, message: null})
+  
   const signIn = (userToSignIn) => {
       SignIn(userToSignIn)
-        .then(signInResult => props.setAccountStatus(signInResult))
+        .then(signInResult => {
+          props.setAccountStatus(signInResult)
+        })
+        .catch(() => {
+          displayToastError()
+        })
   }
   
   const createAccount = (accountToCreate) => {
@@ -16,10 +24,33 @@ function LoginPage (props) {
         if (creationResult.status) signIn(accountToCreate)
         alert(JSON.stringify(creationResult))
       })
+      .catch(() => {
+        displayToastError('Error: Username already exists.')
+      })
+  }
+  
+  const displayToastError = (message = 'Error: Incorrect Username / Password.') => {
+    setErrorToastDisplay({visible: true, message: message})
+    setTimeout(() => {
+      setErrorToastDisplay({visible: false, message: null})
+    }, 5000)
+  }
+  
+  const errorToast = () => {
+    let toast = null
+    if (errorToastDisplay.visible) {
+      toast = (
+        <Toast>
+          <p>{errorToastDisplay.message}</p>
+        </Toast>
+      )
+    }
+    return toast
   }
   
   return (
     <Wrapper>
+      {errorToast()}
       <Branding/>
       <Form signIn={signIn} createAccount={createAccount}/>
       <Info>
@@ -42,7 +73,7 @@ const Wrapper = Styled('div')`
   @media screen and (max-width: 1024px) {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr) 50px;
-    padding: 0 10vw;
+    padding: 10vh 10vw;
   }
   
   display: grid;

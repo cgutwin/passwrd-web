@@ -22,7 +22,7 @@ export const signIn = async (userToSignIn) => {
   })
   
   return {
-    status: true,
+    status: signInData,
     data: signInData.data
   }
 }
